@@ -5,6 +5,11 @@ const scores = JSON.parse(localStorage.getItem('score')) || {
 } 
 console.log(scores);
 
+const paragraphsElement = document.querySelector('.js-paragraph');
+console.log(paragraphsElement);
+
+paragraphsElement.innerHTML = `Wins: ${scores.wins}, losses: ${scores.losses}, tie: ${scores.tie}`
+
 function playGame (playerMove) {
     computerMove =  pickComputerMove();
     let result = '';
@@ -19,17 +24,46 @@ function playGame (playerMove) {
             result = 'Tie';
         }
 
-    } else if (playerMove === 'Paper') {
-        
-        if (computerMove === 'Rock'){
-            result = 'You win';
-        } else if (computerMove === 'Paper') {
-            result = 'Tie';
-        } else if (computerMove === 'Scissors') {
-            result = 'You lose';
+        if(result === 'You win') {
+            scores.wins += 1;
+        } else if (result === 'You lose') {
+            scores.losses += 1;
+        } else if (result === 'Tie'){
+            scores.tie += 1;
         }
 
+        localStorage.setItem('score',JSON.stringify(scores));
+        
+        alert (`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.
+Wins: ${scores.wins}, losses: ${scores.losses}, tie: ${scores.tie}`)
+
+    } else if (playerMove === 'Paper') {
+        computerMove =  pickComputerMove();
+        let result = '';
+        
+        if (computerMove === 'Rock'){
+            result = 'You win';
+        } else if (computerMove === 'Paper') {
+            result = 'Tie';
+        } else if (computerMove === 'Scissors') {
+            result = 'You lose';
+        }
+        if(result === 'You win') {
+            scores.wins += 1;
+        } else if (result === 'You lose') {
+            scores.losses += 1;
+        } else if (result === 'Tie'){
+            scores.tie += 1;
+        }
+
+        localStorage.setItem('score',JSON.stringify(scores));
+
+        alert (`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.
+Wins: ${scores.wins}, losses: ${scores.losses}, tie: ${scores.tie}`)
+    
     } else if (playerMove === 'Rock') {
+        computerMove =  pickComputerMove();
+        let result = '';
         
         if (computerMove === 'Rock'){
             result = 'Tie';
@@ -38,7 +72,6 @@ function playGame (playerMove) {
         } else if (computerMove === 'Scissors') {
             result = 'You win';
         }
-    }
 
         if(result === 'You win') {
             scores.wins += 1;
@@ -52,6 +85,7 @@ function playGame (playerMove) {
 
         alert (`You picked ${playerMove}. Computer picked ${computerMove}. ${result}.
 Wins: ${scores.wins}, losses: ${scores.losses}, tie: ${scores.tie}`)
+    }
         
     }
 

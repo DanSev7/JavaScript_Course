@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM Projects</title>
+    </head>
+    
+    <body>
+        <p>YouTube Subscribe Button</p>
+        <button class="js-button" onclick="handleClick()">Subscribe</button>
+        <script>
+             function handleClick() {
+                let buttonElement = document.querySelector('.js-button');
+                console.log(buttonElement)
+                if (buttonElement.innerText === 'Subscribe'){
+                    buttonElement.innerText = 'Subscribed';
+                }else {
+                    buttonElement.innerText = 'Subscribe';
+                }
+             }
+        </script>
+    </body>
+</html>
