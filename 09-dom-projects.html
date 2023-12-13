@@ -7,7 +7,24 @@
     <body>
         <p>YouTube Subscribe Button</p>
         <button class="js-button" onclick="handleClick()">Subscribe</button>
+
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+
+        <input placeholder="Cost of order" class="js-input" onkeydown="
+            handleCostKeydown(event);
+        " />
+        <button class="js-calculate" onclick="calculate()">Calculate</button>
+        <p class="js-result"></p>
         <script>
+
+             function handleCostKeydown (event) {
+                let key = event.key;
+                if(key === 'Enter'){
+                    calculate();
+                }
+             }
              function handleClick() {
                 let buttonElement = document.querySelector('.js-button');
                 console.log(buttonElement)
@@ -16,6 +33,16 @@
                 }else {
                     buttonElement.innerText = 'Subscribe';
                 }
+             }
+
+             function calculate() {
+                let cost = document.querySelector('.js-input');
+                let totalCost = parseInt(cost.value);// here we can use Number() method to change string to number
+                if(totalCost < 40){
+                    totalCost = totalCost + 10;
+                } 
+                document.querySelector('.js-result').innerHTML = `$${totalCost}`; 
+                
              }
         </script>
     </body>
