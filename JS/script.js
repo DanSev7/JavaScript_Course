@@ -19,10 +19,11 @@ function playGame(guess) {
     } else if (result === 'You lost'){
         scores.losses += 1;
     }
-
     localStorage.setItem('score', JSON.stringify(scores));
-    alert (`You gussed ${guess} and the computer tosses ${computer}
-Wins : ${scores.wins} , losses : ${scores.losses}`);
+    document.querySelector('.js-playermove').innerHTML = `You Guess : ${guess}`
+
+    document.querySelector('.js-score').innerHTML = `Wins: ${scores.wins}, losses: ${scores.losses}`
+    
 }
 
 function computerMove() {
@@ -42,6 +43,5 @@ function removeData(){
         losses:0
     }
     
-    alert(`The score has been reseted 
-Wins: ${scores.wins}, losses: ${scores.losses}`)
+    document.querySelector('.js-score').innerHTML = `Wins: ${scores.wins}, losses: ${scores.losses}`
 }
