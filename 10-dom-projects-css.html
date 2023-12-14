@@ -70,11 +70,21 @@
 
              function calculate() {
                 let cost = document.querySelector('.js-input');
-                let totalCost = parseInt(cost.value);// here we can use Number() method to change string to number
-                if(totalCost < 40){
+                let totalCost = Number(cost.value);
+                let resultElement = document.querySelector('.js-result');
+                if(totalCost < 40 && totalCost > 0 ){
                     totalCost = totalCost + 10;
-                } 
-                document.querySelector('.js-result').innerHTML = `$${totalCost}`; 
+                    resultElement.innerHTML = `$${totalCost}`; 
+                    resultElement.style.color = 'black';
+
+                }  else if (totalCost <= 0){
+                    resultElement.innerHTML = `Error: cost can't be less than or equal $0`;
+                    resultElement.style.color = 'red'; 
+                } else {
+                    resultElement.innerHTML = `$${totalCost}`;
+                    resultElement.style.color = 'black';
+
+                }
                 
              }
         </script>
