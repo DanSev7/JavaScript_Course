@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Advanced Functions</title>
+    </head>
+
+    <body>
+
+        <script>
+    /*
+
+        // Function calling
+            function greeting() {
+                console.log('hello');
+            }
+            greeting();
+
+        // anonymous function calling
+            const function1 = function () {
+                console.log('hello2');
+            }
+            function1();
+
+        // Function iside an Object
+            const object1 = {
+                num: 2, 
+                fun: function (){
+                    console.log('hello3');
+                }
+            }
+            object1.fun();
+
+        // passing parameter or argument to a function
+            function display (param){
+                console.log(param);
+            }
+            display('hello4');
+
+        // function inside a function
+            function run (param) {
+                param();
+            }
+
+            run(function(){
+                console.log('hello5');
+            })
+    */
+            
+    /*
+        // setTimeout run the function after 3 seconds which means it is asynchronous
+            setTimeout(function (){
+                console.log('timeout');
+            }, 3000);
+
+            console.log('line1');
+        // setInterval runs this function after every 3 seconds
+            setInterval(function () {
+                console.log("Interval");
+            }, 4000)
+
+            console.log('line2');
+    */
+
+    /*
+            const list = [
+                'make dinner',
+                'wash dishes',
+                'watch youtube'
+            ]
+            list.forEach( (value, index) => {
+                console.log(value);
+                console.log(index);
+            });
+
+        // Arrow functions
+
+            const param = () => {
+                console.log('new');
+            }
+            const oneLine = () => {console.log(2 + 3)} ; 
+            oneLine();
+    */
+
+    // filter() and map()
+
+    // filter ()
+
+    const list = [1, -3, 5];
+        console.log(list.filter((value, index) => {
+            //if(value >= 0){ return true;}
+            //else {return false;}
+            return value >= 0;
+        }));
+
+    // map ()
+    const listMap = [1, 1, 2];
+    console.log(listMap.map((value, index) => {
+        return value * 2;
+    }))
+    // or use shortcuts
+    console.log(listMap.map(value => value * 3));
+
+        </script>
+    </body>
+</html>
