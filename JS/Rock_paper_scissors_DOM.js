@@ -21,7 +21,6 @@ function playGame (playerMove) {
             result = 'Tie';
         }
 
-
     } else if (playerMove === 'Paper') {
         if (computerMove === 'Rock'){
             result = 'You win';
